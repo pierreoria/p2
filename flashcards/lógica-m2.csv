@@ -1,0 +1,140 @@
+Estrutura: componentes,Domínio: objetos  constantes: subconjunto do domínio  relações: mapeamentos k-ários de objetos para booleanos  funções: mapeamentos k-ários de objetos para objetos,,
+Assinatura,"cardinalidade do conjunto constantes, funções n-árias e relações k-árias de uma estrutura. mapeamento de símbolos para cada um forma uma linguagem, mas por simplicidade já damos os símbolos na assinatura. Ex. assinatura de A tem 2 símbolos de funções binárias, r e q [...];",,
+Interpretação,"mapeamento de símbolos para funções, relações e constantes",,
+homomorfismo,"1. Para todo símbolo de constante c de L, h(cᴬ) = cᴮ;
+2. Para todo símbolo de relação n-ária R de L e toda n-upla (a₁ , ..., aₙ) de elementos de A, (a₁ , ...aₙ) ∈ Rᴬ → (h(a₁ ), ..., h(aₙ)) ∈ Rᴮ; 
+3. Para todo símbolo de função n-ária f de L e toda n-upla (a₁ , ..., aₙ) de elementos de A, h(fᴬ (a₁ , ...aₙ)) = fᴮ (h(a₁), ..., h(aₙ)).",,
+imersão,"homomorfismo em que:
+1. função h é injetora
+2. Para todo símbolo de relação n-ária R de L e toda n-upla (a₁, ..., aₙ) de elementos de A,
+(a₁ , ...aₙ) ∈ Rᴬ ↔ (h(a₁), ..., h(aₙ)) ∈ Rᴮ (sse)",,
+isomorfismo,imersão em que h é sobrejetora,,
+endomorfismo,homomorfismo h : dom(A) → dom(A),,
+automorfismo,isomorfismo h : dom(A) → dom(A),,
+subestrutura,"Sejam A e B estruturas de mesma assinatura. Dizemos que A é subestrutura de B se:
+1. dom(A) ⊆ dom(B)
+2. A função identidade i : dom(A) → dom(B) | i(x) = x é uma imersão.
+A notação é A ⊆ B.",,
+menor subestrutura,"menor domínio possível: contém um subconjunto x da estrutura original e todas suas funções, relações e destaques. completado minimamente para manter consistência",,
+extensão de uma estrutura,domínio todo acessível pelos destaques - estrutura com destaques completados de forma que todos os elementos do domínio de A sejam acessíveis a partir das funções de A (partindo de uma subestrutura cujo domínio é vazio),,
+termos,definição recursiva: constantes e variáveis são termos; função aplicada a termos é termo também,,
+fórmulas atômicas,"um dos dois:
+1. R(t₁, ...tₙ), onde R é um símbolo de relação n-ária de L e t₁ , ..., tₙ são termos de L;
+2. t₁ = t₂ , onde t₁ e t₂ são termos de L.",,
+fórmula bem formada,"fecho indutivo das fórmulas atômicas sob F = {∧,∨,→, ∃,∀}
+toda fórmula atômica é bem formada 
+se Φ, Δ forem fórmulas bem formadas:
+- ¬Φ, ¬Δ são fórmulas bem formadas
+- (Φ■Δ) é uma fórmula bem formada (■ = ∧,∨,→)
+- (para x variável livre em Φ): ■xΦ é uma fórmula bem formada (■ = ∃,∀)",,
+sentença,fórmula sem variáveis livres,,
+Variável livre,"função recursiva que retorna conjunto de variáveis
+VL : FORM → P(VARIÁVEIS) (formulas bem formadas para conjunto das partes das variáveis)
+1. Fórmula é atômica: Φ = (R(t₁, ...tₙ)) ou Φ = (t₁ = t₂)
+VL(Φ) = {x1,x2,...xn} tal que x1,x2,...xn ocorrem em Φ
+2. Fórmula não atômica, não tem quantificadores
+- VL(¬Φ) = VL(Φ)
+- VL(Φ■Δ) = VL(Φ) U VL(Δ) (■ = ∧,∨,→)
+3. Fórmula com quantificadores
+- VL(■xΦ) = VL(Φ) - {x} (■ = ∃,∀)",,
+substituição de variável livre,"se aplica recursivamente aos termos e fórmulas internos de uma fórmula maior, substitui quando chega na variável (livre) em questão.
+cuidado: (■xΦ)[s/x] = (■xΦ) |■ ∈ {∃,∀}substituição não tem permissão para substituir variável ligada.
+Formalmente:
+Substituição de uma variável x por um termo t em um termo s
+s[t/x]: TERM × TERM × VARIÁVEIS → TERM
+x[t/x] = t
+y[t/x] = y, se x != y
+c[t/x] = c
+f(t1, ..., tn)[t/x] = f(t1[t/x], ..., tn[t/x])
+Substituição de uma variável x por um termo t em uma fórmula φ
+φ[t/x]: FORM × TERM × VARIÁVEIS → FORM
+R(t1, ..., tn)[t/x] = R(t1[t/x], ..., tn[t/x])
+(t1 = t2)[t/x] = (t1[t/x] = t2[t/x])
+(¬ψ)[t/x] = (¬ψ[t/x])
+(ρ ∧ θ)[t/x] = (ρ[t/x] ∧ θ[t/x])
+(ρ ∨ θ)[t/x] = (ρ[t/x] ∨ θ[t/x])
+(ρ → θ)[t/x] = (ρ[t/x] → θ[t/x])
+(∀xω)[t/x] = (∀xω)
+(∀yω)[t/x] = (∀yω[t/x]), se x != y
+(∃xω)[t/x] = (∃xω)
+(∃yω)[t/x] = (∃yω[t/x]), se x != y",,
+diagrama positivo,"lista de sentenças atômicas verdadeiras: relações verdadeiras (incluindo igualdade) para todos os elementos do domínio de A. Construído a partir da extensão de A (mínimo número de destaques tal que ainda dê pra acessar todos os membros do domínio com as funções de A). Essa lista não é exaustiva, porque não precisa incluir algumas redundâncias. a lista exaustiva seria o fecho sob igualdade desse diagrama.",,
+modelo canônico,"Modelo que satisfaz todas as sentenças de um diagrama positivo. 
+adicionalmente, os objetos desse modelo são representantes de classes de equivalência. 
+Dessa forma, o modelo canônico vai ser representativo de todos os outros modelos daquele diagrama positivo",,
+valor verdade de uma sentença,"Seja L uma assinatura, A uma L-Estrutura e ∗ᴬ uma interpretação dos símbolos de L em A.
+O valor-verdade de uma sentença ϕ de L é definida indutivamente da seguinte forma:
+• R(t 1 , ..., t n )ᴬ é verdadeira se, e somente se, (tᴬ
+1 , ..., t n ) ∈ Rᴬ
+• (t 1 = t 2 ) A é verdadeira se, e somente se, tᴬ
+1 for o mesmo elemento que tᴬ 2
+• (¬ψ)ᴬ é verdadeira se, e somente se, ψᴬ for falsa
+• (ρ ∧ θ)ᴬ é verdadeira se, e somente se, ρᴬ for verdadeira e θᴬ for verdadeira
+• (ρ ∨ θ)ᴬ é verdadeira se, e somente se, ρᴬ for verdadeira ou θᴬ for verdadeira
+• (ρ → θ)ᴬ é verdadeira se, e somente se, ρᴬ for falsa ou θᴬ for verdadeira
+• (∀xω)ᴬ é verdadeira se, e somente se, ωᴬ for verdadeira para todo valor de x
+• (∃xω)ᴬ é verdadeira se, e somente se, ωᴬ for verdadeira para algum valor de x
+Se ϕ A for verdadeira, dizemos que A satisfaz ϕ sob a interpretação ∗ᴬ .",,
+modelo e contramodelo,"A L-estrutura, Ψ expressão. 
+A é modelo para Ψ se existe uma interpretação L em A tal que Ψᴬ seja verdadeira
+A é contramodelo para Ψ se existe uma interpretação L em A tal que Ψᴬ seja falsa",,
+sentenças atômicas,"sentença do tipo s1 = s2 ou R(a,...b)",,
+termos,fecho indutivo de constantes unido a variáveis fechado sob funções de A (todos os objetos),,
+ordem parcial,"reflexiva, anti-simétrica e transitiva",,
+relação de equivalência,"reflexiva, simétrica e transitiva",,
+construção de diagrama positivo,"transitividade de igualdade é implícita, entre relações não é
+listar igualdades (usar funções)
+listar relações, 1 vez pra representante da classe de eq",,
+valoração Φᴬ com variáveis livres,"Φᴬ é verdadeira se, para as variáveis livres x₁, x₂ ,... xₙ que ocorrem em Φ, ∃(t₁, t₂ ,... tₙ) ∈ Dom(A) tal que Φ[t₁/x₁, t₂/x₂ ,... tₙ/xₙ] é V",,
+satisfabilidade e correlatos na lógica de predicados,"Seja Φ sentença:
+SAT: Existe pelo menos uma estrutura A e uma linguagem L apropriada tal que Φᴬ = V
+Refutabilidade: Existe pelo menos uma estrutura A e uma linguagem L apropriada tal que Φᴬ = F
+Validade (tautologia): Para toda estrutura A e toda linguagem L apropriada. Φᴬ = V
+Insat: Para toda estrutura A e toda linguagem L apropriada. Φᴬ = F
+Seja Γ conjunto de sentenças:
+mesma coisa, para toda sentença ɣ ∈ Γ",,
+consequência lógica (lógica de predicados),"Na estrutura A, linguagem L, Φ é consequência lógica de Γ:  
+Se para toda interpretação de L em A tal que ɣᴬ é Verdadeiro ∀ɣ ∈ Γ, Φᴬ também é verdadeira
+(todo modelo de Γ também é modelo de Φ)
+notação: Γ ⊨ Φ",,
+interpretação ⊢ e ⊨,"logicamente equivalentes (relação se somente se)
+Γ ⊨ Φ : todo modelo de Γ também é modelo de Φ
+Γ ⊢ Φ : Γ U ¬Φ insat (usando método da resolução) ",,
+skolemização,"entrada na forma prenex
+retira quantificadores existenciais, substituindo por função de variável ligada a ∀ (1) ou constante (2). 
+apaga ∀ quando não houver mais ∃
+1. ∀x∃yR(x,y)  -> ∀xR(x,f(x)) -> R(x,f(x)) ok
+2. ∃yR(y) -> R(a) (onde a é uma constante)
+
+*Note que no primeiro caso, a função f unária deve ser adicionada à assinatura de A', assim como a constante 'a' no segundo caso",,
+forma normal prefixada,sequência de quantificadores e respectivas variáveis ligadas precedendo restante da expressão,,
+unificabilidade,"sse algoritmo de herbrand finaliza, encontrando uma função de substituição",,
+homomorfismo é de modelo qualquer pra modelo canônico ou contrário?,homomorfismo do modelo canônico para outro modelo (esse homomorfismo é único),,
+forma resolvida,"S: sistema de equações do tipo (variável = termo) tal que v não ocorre em t, e em nenhuma outra equação de S
+implica unificabilidade",,
+método da resolução na lógica de predicados: passo a passo,"1. forma normal conjuntiva: eliminar →,deixar conjunção de disjunções
+2. forma normal prefixada: todos os quantificadores antes do restante da expressão
+3. forma skolemizada: eliminar ∃x definindo toda ocorrência de x como função de constante ou variável ligada por ∀
+4. apagar ∀
+5. algoritmo de Herbrand",,
+,,,
+,,,
+algoritmo de Herbrand: significado,,,
+algoritmo de Herbrand,,,
+incompletude da aritmética de peano,,∃,■
+,,∄,∧
+,,⊆,∨
+,,∀,→
+,,Φ,¬
+,,Ψ,≡
+,,Γ,⊢
+,,ⁿ,∈
+,,Δ,∉
+,,δ,ɣ
+,,ᴬ,
+,,,
+,,₁,
+,,₂,
+,,ₙ,
+,,⊨,
+,,⊢,

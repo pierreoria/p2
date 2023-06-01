@@ -1,0 +1,50 @@
+"Explique por que a noção de ‘valoração-verdade’ não atende às necessidades
+da Lógica de Predicados, e justifique por que ‘estrutura matemática’ é uma ferramenta
+mais adequada. Aproveite para definir como estrutura matemática o conjunto dos in-
+teiros módulo 5, com: 2 e 3 como destaques; a relação < e o predicado ‘Primo’; as
+funções ‘quadrado mod 5’, ‘soma mod 5’, e ‘multiplicação mod 5’. Diga qual é a
+assinatura dessa estrutura, defina uma linguagem L, e dê uma interpretação de L na
+estrutura.","A noção de valoração-verdade não atende às necessidades da Lógica de Predicados pois lida apenas com o espaço de possibilidades finito, como o da Lógica Proposicional, enquanto que a Lógica de Predicados lida com um espaço de possibilidades infinito. Isso acontece pois na Lógica de Predicados há quantificadores, predicados e funções, que não conseguem ser abarcados pelo conceito de valoração-verdade. Assim, é necessária a utilização da Estrutura Matemática.
+
+Não é possível aplicar o conceito de “valoração-verdade” à Lógica de Predicados, pois temos que buscar uma ferramenta mais elaborada, que dê conta de atribuir valores a tipos distintos de elementos. Para isso, usa-se a noção de “estrutura matemática”.
+Na Lógica proposicional o espaço de possibilidades é finito e, portanto, é possível construir uma tabela que explore cada possibilidade (valoração-verdade). Já na Lógica de Predicados, temos um espaço de possibilidades ( estrutura + interpretação) infinito, de modo que não é possível construir uma tabela finita, o que impede a utilização de uma “tabela verdade”."
+"Enumere as restrições da lógica proposicional no que diz respeito à análise da
+validade de argumentos segundo a proposta original da disciplina de Lógica esboçada
+por Aristóteles, e identifique as caracterı́sticas da Lógica de Predicados que permitem
+recuperar a capacidade de tratar matematicamente argumentos, permanecendo na abor-
+dagem algébrica/simbólica.","As restrições da lógica proposicional envolvem sua limitação em relação a suas operações, pois lida apenas com sentenças e proposições e se limita a operadores E, OU, NÃO, IMPLICAÇÃO.
+Além disso, não modela “TODO”, “ALGUM”, “NENHUM”, “ALGUM NÃO”, e não facilita o tratamento de predicados e relações, pois a valoração-verdade da lógica proposicional se limita a um espaço de possibilidades finito.
+Assim, a lógica proposicional não consegue lidar totalmente com a análise de argumentos proposta por Aristóteles.
+Já a Lógica de Predicados permite lidar com predicados, relações e quantificadores, através da introdução de conceitos como a Estrutura Matemática. Tal conceito permite lidar com o espaço de possibilidades infinito da Lógica de Predicados. 
+
+A Lógica de Predicados tem quantificadores que permitem modelar as oposições encontradas por Aristóteles e permite a representação simbólica/formal  de predicados e relações."
+"(V ou F + justificativa)
+(i) Se Γ for um conjunto satisfatı́vel então todo subconjunto finito de Γ é consistente.
+","(i) Verdade. Pelo Teorema da Compacidade, sabemos que um conjunto Γ é satisfatível se, somente se, todo subconjunto finito de Γ é satisfatível. Assim, fazendo a contrapositiva do teorema, vemos que se um conjunto Γ é insatisfatível, então algum subconjunto finito de Γ é insatisfatível. Logo, há pelo menos um subconjunto de Γ que não tem estrutura + interpretação que o satisfaz, de modo que as suas sentenças não podem ser verdadeiras simultaneamente, portanto, algum subconjunto de Γ é inconsistente.
+"
+"(V ou F + justificativa)
+(ii) Seja T um conjunto de sentenças atômicas numa linguagem L. Então, para qual-
+quer modelo C de T existe um homomorfismo de C para o modelo canônico de T .
+","
+(ii) Verdade. Pois o modelo canônico é a estrutura mais genérica possível que é modelo das sentenças de T, de modo a servir de referência para todos os modelos de T, pois ele considera qualquer interpretação. Um homomorfismo é uma função que preserva as relações, funções e destaques definidas em duas estruturas.  Portanto, se temos um modelo C de T, é possível definir uma função entre C e o modelo canônico de T que preserva a semântica de suas sentenças, isto é, podemos construir um homomorfismo de C para esse modelo canônico."
+"(V ou F + justificativa)
+(iii) Seja ϕ uma fórmula de uma linguagem L que está na forma prenex. Então, para
+qualquer L-estrutura A que é modelo de ϕ, existe uma L0 -estrutura A0 que é modelo
+da forma skolemizada de ϕ (onde L0 inclui L e mais os sı́mbolos acrescentados na
+skolemização).","(iii) Verdade. O processo de Skolemização de φ para φ’ é definido de forma a preservar a satisfatibilidade, isto é, a fórmula skolemizada é satisfatível se, somente se, a fórmula original é satisfatível. Desse modo, se existe uma estrutura A que é modelo de φ, então existe uma estrutura A’ que é modelo de φ’. Além disso, sabemos que L’ deve incluir as funções e constantes de skolem introduzidas no processo para que A’ possa ser modelo de φ’, já que a sua linguagem deve ser adequada para tratar a fórmula."
+"(V ou F + justificativa)
+(iv) Seja L uma linguagem, e t um termo de L. Dado que o conjunto de termos de L é indutivo e livremente gerado, a função de substituição das variáveis ocorrendo em t por termos de L pode ser definida por recursão sobre a complexidade de t, resultando de fato numa função matematicamente bem definida.","
+(iv) Verdade. Como o conjunto de termos de L é indutivo e livremente gerado, então seus elementos têm a propriedade de leitura única, de forma que é matematicamente seguro definir uma função recursiva sobre a complexidade de um termo t de L. Assim, a função de substituição explora recursivamente a fórmula até encontrar uma ocorrência livre da variável a ser substituída, e então a substitui."
+"Dê uma breve explicação dos objetivos do Programa de David
+Hilbert, e faça um esboço da estratégia de Kurt Gödel para mostrar a inviabilidade de
+tal programa, que o levou a demonstrar, em 1930, a incompletude da Teoria Formal da
+Aritmética proposta por Giuseppe Peano em 1889.","O programa de Hilbert tinha por objetivo representar cada uma das teorias da matemática por um conjunto finito de axiomas e provar que esse conjunto é consistente usando a Lógica de Primeira Ordem. Com isso, poderíamos provar qualquer enunciado verdadeiro sobre essa teoria usando os axiomas. 
+Em 1889, Giuseppe Peano propôs uma assinatura e uma teoria axiomática para a Aritmética consistindo de 7 leis básicas. Kurt Godel utilizou a Teoria Aritmética de Peano para mostrar que o objetivo de Hilbert não era possível. Em 1931, Godel provou a Teoria da Incompletude, a qual afirma que qualquer teoria axiomática que se proponha a formalizar a Aritmética não pode ser completa e correta ao mesmo tempo.
+A estratégia de Godel foi a de codificar cada símbolo da assinatura de Peano e da Lógica de Primeira Ordem utilizando números primos e, assim, ele conseguiu escrever qualquer sentença da aritmética como o produto desses primos. Desse modo, ele codificou a sentença “eu não sou demonstrável a partir dos axiomas” como um natural. Tal fato tem uma grave consequência:
+
+Supondo que a sentença é falsa, temos que ela é demonstrável a partir dos axiomas. Supondo que a Aritmética é correta, a sentença deve ser verdadeira, o que é uma contradição.
+
+Uma vez que é verdadeira, ela não é demonstrável a partir dos axiomas. Assim, há uma sentença verdadeira na matemática que não podemos provar verdadeira, implicando que a Aritmética não é completa.
+
+Logo, a Aritmética não pode ser correta e completa ao mesmo tempo.
+"

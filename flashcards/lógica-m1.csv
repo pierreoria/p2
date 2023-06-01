@@ -1,0 +1,87 @@
+Definição Conjunto Indutivo sob X e F,A conjunto não vazio; X subconjunto próprio de A; Y subconjunto de A; F funções definidas sobre A.  Y é indutivo se: 1. X ⊆ Y 2. Y é fechado sob funções de F
+Alfabeto da lógica simbólica,"Σ = conjunto de variáveis (x,y,...); constantes (0,1); operadores (¬, ∧,v, →); agrupadores ( (, ) )"
+Expressões da lógica simbólica,Sequências de caracteres de Σ que são corretas sintaticamente
+Consistência: definição,Premissas (implícitas ou explícitas) não produzem sentenças contraditórias (existe configuração possível)
+Validade: definição,"Premissas verdadeiras produzem apenas conclusões verdadeiras. 
+Diz-se de um argumento OBS: premissas falsas geram argumentos válidos (validez por vacuidade/Ex falso quodlibet: princípio da explosão). 
+Argumento válido tem a ver com relação entre premissas e conclusões, não fatos. 
+{Se a lua é feita de queijo, então meu nome é chun li} 
+OBS 2: as premissas também podem ser inconsistentes entre si -> produzirão argumentos válidos por vacuidade tb"
+Tipos de sentenças,"Objeto a predicado: x é A / x não é A; Predicado a predicado: Universal e Existencial positivo e negativo - ∀x, x é A; ∀x, x não é A, ∃x, x é A, ∄x, x não é A"
+Argumentos,Sequência de atos de inferência
+Atos de inferência,Procedimento que produz sentença como conclusão de outras sentenças (premissas)
+Sentença,Construção linguística que se presta a uma avaliação de veracidade || afirmação que pode ser verdadeira ou falsa
+Tipos de oposição objeto a predicado,"(x é A) se opõe a (x não é A); (x é A) e (x não é B) não se opõem, desde que A != B; (x é A) e (y não é A) não se opõem, desde que x != y"
+Tipos de oposição predicado a predicado,Contrárias: 00 pode ocorrer; Contraditórias: 01 e 10; Sub-contrárias: 11 pode ocorrer; sub-alternas: 00 e 11 únicas saídas possíveis
+Vacuidade,Não é possível encontrar contra-exemplo
+Contra-exemplo,Situação em que premissas são verdadeiras e 1+ conclusão é falsa
+Prova: X⁺ = X₊,"X⁺ ⊆ X₊
+ideia: se X₊ é indutivo sob X e F, a intercessão de todos os conjuntos indutivos sobre X e F (X⁺) deve ser subconjunto de X₊
+1. X ∈ X₊ ok 
+2. X₊ é fechado sobre F: se uma n-upla t pertence a X₊, f(t) também pertence a X₊, para toda função pertencente a F
+
+X₊ ⊆ X⁺
+1. X ∈ X⁺
+2. 
+HI: Xi ∈ X⁺
+Tese: Xᵢ₊₁ ∈ X⁺
+Xᵢ₊₁ = Xᵢ U {f(w1,...wk) | ∀f ∈ F, ∀ n-upla(w1,...wk) ∈ Xᵢ} 
+pela HI,  Xᵢ ∈ X⁺.
+como X⁺ é indutiva, se (w1,...wk) ∈ X⁺, f(w1,...wk) ∈ X⁺"
+Conjunto livremente gerado: interpretação,Um elemento desse conjunto só pode ter sido gerado de uma forma
+Conjunto livremente gerado: definição,"1. funções f ∈ F injetivas quando restritas a Y (conjunto indutivo) f|Yᵏ (k = aridade de f) 
+2. para 2 funções distintas de F (restritos a Y), seus conjuntos imagem são disjuntos 
+3. nenhum elemento da base X é imagem de nenhuma função de F"
+Funções recursivas sobre CLGs,"Base: g(w) | w ∈ X Caso indutivo: g(f∨(w1,w2)) = g(w1)+g(w2) + v e assim por diante com ∧, →, ¬"
+alfabeto,Σ = alfabeto (conjunto de caracteres)
+fecho transitivo de alfabeto,"Σ* = conjunto de *todas* as palavras (sequências) construídas a partir de um alfabeto Σ 
+pode ser definido como fecho transitivo de Σ 
+é fechado sobre a operação de concatenação"
+concatenação,"função c:Σ*->Σ* | c(w1,w2) = w1w2"
+linguagem,"linguagem é subconjunto de Σ* (fecho transitivo de Σ - alfabeto):  
+todas as sequências legais de Σ*"
+função geradora de uma linguagem,f: (Σ*)ⁿ -> Σ* | n >= 0
+definição formal menor conjunto indutivo,intercessão da família F de todos os conjuntos indutivos de Σ* que contém X e são fechados sobre F
+definição formal fecho indutivo,"Base: X0 = X; X(i+1) = Xi U {f(w1,...wk) | f ∈ F, k = aridade de f, w1,...,wk ∈ Xi}"
+posto de uma expressão,"Base: w ∈ X -> h(w) = 0 Caso indutivo:  h(¬(w)) = h(w) +1, h((w1 ? w2)) = max(h(w1),h(w2)) +1"
+Função que gera subexpressões,"sub: PROP -> P(PROP) (conjunto das partes) Base: w ∈ X -> sub(w) = {w} Caso indutivo:  sum(¬(w)) = {¬w} U sub{w}, sub((w1 ? w2)) = w1?w2 U sub(w1) U sub(w2)"
+Função que conta subexpressões,nsub: PROP -> N nsub(w) = |sub(w)|
+funções sobre prop,"s : PROP → P(PROP) (subexpressões)
+i : PROP → GRAFO (árvore sintática)
+p : PROP → N (posto)"
+valoração verdade,"v: X -> {0,1} t.q. sua extensão homomórfica v^: X₊ -> booleanos 
+calcula o valor-verdade de expressões da seguinte forma: 
+v^(a) = v(a) para a atômico, 
+caso indutivo para entradas não atômicas, usando E,ou,não, se-então normalmente"
+Satisfatibilidade de proposição,"Existe 1+ valoração-verdade entre as 2^n valorações da forma v: X -> {0,1} | v satisfaz Φ , ou seja: v^(Φ) = 1"
+Refutabilidade de proposição,"Existe 1+ valoração-verdade v: X -> {0,1} | v refuta Φ , ou seja: v^(Φ) = 0"
+Tautologia,"todas as v: X -> {0,1} satisfazem Φ (v^(Φ) = 1)"
+Satisfatibilidade de conjunto de expressões,"∃ valoração-verdade das variáveis | ∀ φi ∈  Γ , v^(φi) = 1 (1 configuração das variáveis satisfaz TODAS as proposições do conjunto)"
+Insatisfatibilidade de conjunto de expressões,"∄ valoração-verdade das variáveis | ∀ φi ∈  Γ , v^(φi) = 1 (nenhuma configuração das variáveis satisfaz TODAS as proposições do conjunto)"
+Equivalência lógica,para toda valoração v: X->Bool; v^(a) = v^(b)
+Consequência lógica,uma proposição Φ é consequência lógica de um conjunto de proposições Γ se toda valoração que satisfaz Γ também satisfaz Φ (Γ⊨Φ)
+Lei de De morgan,¬(Φ∨Ψ) ≡ ¬(Φ)∧¬(Ψ) & ¬(Φ∧Ψ) ≡ ¬(Φ)∨¬(Ψ)
+Lei do 3° excluído,Φ∨¬Φ ≡ 1
+Lei da não contradição,Φ∧¬Φ ≡ 0
+Lei da dupla negação,¬¬Φ ≡ Φ
+Consequência lógica e satisfatibilidade,Γ⊨Φ sse Γ U {¬Φ} é insatisfatível
+Teorema da extensão homomórfica única e a valoração-verdade,"v^:PROP -> bool é CLG -> v^ é única (v^ seria a função com 2^n casos, para uma proposição com n variáveis)"
+SAT e correlatos,"tautologia: ∀ valoração, Φ é SAT; 
+refutável: ∃ valoração | Φ não é SAT; 
+insatisfatibilidade: ∄ valoração | Φ é SAT"
+Complexidade do método da tabela-verdade,"NP: não deterministicamente polinomial. algoritmo exaustivo tem complexidade O(2ⁿ(2m+1)), verificar valoração individual tem custo O(2m+1), onde n = número de variáveis, m = número de operadores"
+Tableaux analíticos: otimização,Operações alfa (lineares) têm prioridade sobre operações beta (que bifurcam a árvore)
+Método da resolução: requisito para eficiência,Forma normal conjuntiva com cláusulas de horn (disjunção de literais)
+Regra da resolução,"para demonstrar Γ⊨Φ, provar que Γ U {¬Φ} é insatisfatível: expressão na forma normal conjuntiva, gerar novos termos seguindo o formato (b ∨ y) ∧ (a ∨ ¬b) ≡ (b ∨ y) ∧ (a ∨ ¬b) ∧ (y ∨ a) até chegar em uma contradição do tipo (b ∨ ¬b) ≡ ⊥"
+Cláusula: definição,"Disjunção de literais. (x ∨ y), (a ∨ ¬b)..."
+Literal: definição,"Forma atômica ou sua negação. x, ¬x, a,..."
+Forma normal conjuntiva: definição,Conjunção de cláusulas: (x ∨ y) ∧ (a ∨ ¬b)...
+Cláusulas de horn: definição,Disjunção de literais contendo não mais que 1 literal positivo
+Complexidade do método da resolução com FNC onde todas as cláusulas são de Horn,O(n)
+Complexidade do método da resolução com entrada genérica,O(2ⁿ)
+Dedutibilidade,Γ⊢Φ se é possível construir uma árvore: 1. cuja raiz é Φ 2. cada nó interno é uma aplicação de regras de dedução legítimas 3. as folhas são hipóteses descartadas ou premissas ∈ Γ
+Relação entre dedutibilidade e consequência lógica,Γ⊢Φ sse Γ⊨Φ
+sequente: definição,"Formalização do conceito de dedutibilidade considerando o conjunto de premissas como uma sequência de fórmulas e a dedução como também uma sequência de fórmulas: Γ ⊢ Δ passa a ser representado por (ɣ1, ɣ2, ɣ3, ... ɣn) ⊢(δ1, δ2, ...δn) , equivalente logicamente a: (ɣ1 ∧ ɣ2 ∧ ɣ3 ∧... ɣn) →(δ1 ∨ δ2 ∨...δn)"
+"lógica minimal, intuicionista, clássica",Lógica minimal: utiliza apenas as regras de eliminação e introdução dos operadores na dedução; Intuicionística: minimal + EFQ; Clássica: Intuicionística + RAA
+redundâncias no metodo de DN,redundância do tipo η (eta): Eliminação seguida imediatamente de Introdução; tipo β (beta): Introdução seguida imediatamente de eliminação (com o mesmo operador para ambos os tipos)
+Teorema da normalização,"Seja ϕ uma proposição. Se ⊢ ϕ, então existe uma árvore de prova normal para ϕ. Segundo o teorema da normalização forte, o processo de normalização de uma árvore de prova termina após uma sequência finita de operações; e a forma normal obtida é única"

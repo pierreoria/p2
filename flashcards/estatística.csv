@@ -1,0 +1,26 @@
+P(X = k) distribuição binomial,(n escolhe k) pᵏ (1-p)ⁿ⁻ᵏ | n = no. ensaios; p = probabilidade sucesso; k = no. sucessos
+Valor esperado distribuição binomial,np | n = no. ensaios; p = probabilidade sucesso
+Variância distribuição binomial,np(1-p) | n = no. ensaios; p = probabilidade sucesso
+Interpretação distribuição geométrica,probabilidade de ocorrer 1° sucesso no k-ésimo ensaio
+P(X = k) distribuição geométrica,p (1-p)ᵏ⁻¹
+Valor esperado distribuição geométrica,1/p
+Variância distribuição geométrica,(1-p)/p²
+Interpretação distribuição hipergeométrica,ensaios sem reposição
+P(X = k) distribuição hipergeométrica,[(M esc. k) (N-M esc. n-k)] / (N esc. n) | N pop. total; n número de elementos sorteados; M número de elementos com característica desejada; k sorteados com característica desejada
+Valor esperado distribuição hipergeométrica,np | n número de elementos sorteados; p probabilidade de evento favorável
+Variância distribuição hipergeométrica,np(1-p)*[(N-n)/ (N-1)] | N pop. total; n número de elementos sorteados; M número de elementos com característica desejada; k sorteados com característica desejada
+Interpretação distribuição Poisson,registra número de ocorrências em um espaço de tempo (ocorrências aleatoriamente distribuídas)
+P(X = k) distribuição Poisson,[λᵏ * e^(-λ)] / k! | λ = média de ocorrências em determinado intervalo
+Valor esperado distribuição poisson,λ (em determinado intervalo)
+Variância distribuição poisson,λ 
+Interpretação distribuição uniforme,Distribuição contínua de valor constante ao longo de todo o intervalo
+densidade de probabilidade distribuição uniforme,1/ (b-a) | a = começo do intervalo; b = final do intervalo para x entre a e b
+valor esperado distribuição uniforme,(b+a) / 2  | a = começo do intervalo; b = final do intervalo
+variância distribuição uniforme,(b-a)² / 12
+interpretação distribuição exponencial,probabilidade de duração total de um objeto que se desgasta com o tempo
+f(x) distribuição exponencial,"λe^(-λx), x >= 0 | λ = média"
+P(X=k) distribuição exponencial,1-e^(-λx)
+Valor esperado distribuição exponencial,1 / λ
+variância distribuição exponencial,1 / λ²
+Valor esperado distribuição normal,μ
+Variância ,σ²
